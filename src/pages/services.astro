@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import * as Icons from 'lucide-astro';
+
+const services = [
+  {
+    icon: Icons.Laptop,
+    title: "Website Development",
+    description: "Custom-crafted websites that combine stunning design with powerful functionality. We create digital experiences that engage your audience and drive your mission forward.",
+    features: [
+      "Custom Design & Development",
+      "Mobile-First Approach",
+      "SEO Optimization",
+      "Performance Tuning",
+      "Content Management Systems"
+    ]
+  },
+  {
+    icon: Icons.BarChart3,
+    title: "Digital Strategy",
+    description: "Strategic planning that aligns your digital presence with your ministry goals. We help you navigate the digital landscape and create impactful online experiences.",
+    features: [
+      "Digital Transformation Planning",
+      "Content Strategy",
+      "Analytics & Reporting",
+      "User Experience Design",
+      "Growth Planning"
+    ]
+  },
+  {
+    icon: Icons.Megaphone,
+    title: "Social Media Management",
+    description: "Engaging social media presence that builds community and spreads your message. We help you connect with your audience where they are.",
+    features: [
+      "Content Creation",
+      "Community Management",
+      "Campaign Planning",
+      "Analytics & Growth",
+      "Platform Strategy"
+    ]
+  },
+  {
+    icon: Icons.Code2,
+    title: "Custom Software",
+    description: "Tailored software solutions that streamline your operations and enhance your ministry's effectiveness. We build tools that work for you.",
+    features: [
+      "Custom Applications",
+      "Integration Services",
+      "Database Design",
+      "API Development",
+      "Maintenance & Support"
+    ]
+  },
+  {
+    icon: Icons.Users,
+    title: "Digital Consultation",
+    description: "Expert guidance to help you navigate the digital landscape. We provide insights and strategies to achieve your ministry goals.",
+    features: [
+      "Technology Assessment",
+      "Digital Roadmapping",
+      "Platform Selection",
+      "Security Planning",
+      "Training & Support"
+    ]
+  },
+  {
+    icon: Icons.Palette,
+    title: "Content Creation",
+    description: "Compelling content that tells your story and engages your audience. We help you create meaningful connections through various media.",
+    features: [
+      "Video Production",
+      "Graphic Design",
+      "Copywriting",
+      "Email Marketing",
+      "Brand Development"
+    ]
+  }
+];
+---
+
+<Layout title="Services - Talesoft Digital">
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="relative px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400">
+          Digital Solutions for Kingdom Impact
+        </h1>
+        <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
+          We combine technical expertise with ministry understanding to create digital solutions that amplify your impact.
+        </p>
+        <Button href="/contact" variant="primary">Schedule a Consultation</Button>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(service => (
+          <div class="group bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl hover:bg-zinc-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/5 border border-zinc-800">
+            <service.icon class="w-12 h-12 mb-6 text-primary-400 group-hover:text-primary-300 transition-colors" />
+            <h3 class="text-xl font-display font-semibold mb-4 text-white">{service.title}</h3>
+            <p class="text-zinc-400 mb-6">{service.description}</p>
+            <ul class="space-y-2">
+              {service.features.map(feature => (
+                <li class="flex items-center text-sm text-zinc-500">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary-500/50 mr-2" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="px-4 sm:px-6 lg:px-8 py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
+          Ready to Transform Your Digital Presence?
+        </h2>
+        <p class="text-zinc-400 mb-8 max-w-2xl mx-auto">
+          Let's discuss how we can help your organization make a bigger impact in the digital space.
+        </p>
+        <Button href="/contact" variant="primary">Book Your Free Consultation</Button>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px -10px rgba(59, 75, 255, 0.5);
+    }
+    to {
+      box-shadow: 0 0 30px -5px rgba(59, 75, 255, 0.8);
+    }
+  }
+</style>

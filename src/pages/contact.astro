@@ -1,0 +1,121 @@
+---
+import { Mail, MapPin } from "lucide-astro";
+import Button from "../components/Button.astro";
+import Layout from "../layouts/Layout.astro";
+
+const contactMethods = [
+  {
+    icon: Mail,
+    title: "Email",
+    description: "Drop us a message anytime",
+    action: "hello@talesoft.digital",
+    href: "mailto:hello@talesoft.digital",
+  },
+];
+
+const mapTilerApiKey = import.meta.env.PUBLIC_MAPTILER_API;
+---
+
+<Layout title="Contact - Talesoft Digital">
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="relative px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400"
+        >
+          Let's Create Something Amazing
+        </h1>
+        <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
+          Ready to transform your digital presence? We're here to help you make
+          a lasting impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Email Contact -->
+          <div
+            class="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800 hover:bg-zinc-800/50 transition-all duration-300"
+          >
+            <Mail class="w-12 h-12 mb-6 text-primary-400" />
+            <h3 class="text-xl font-display font-semibold mb-2 text-white">
+              Email
+            </h3>
+            <p class="text-zinc-500 text-sm mb-4">Drop us a message anytime</p>
+            <a
+              href="mailto:hello@talesoft.digital"
+              class="inline-flex items-center gap-2 text-primary-400 font-medium hover:text-primary-300 transition-colors"
+            >
+              hello@talesoft.digital
+              <span class="text-xs">(Click to open mail client)</span>
+            </a>
+          </div>
+
+          <div
+            class="relative bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:bg-zinc-800/50 transition-all duration-300 overflow-hidden group flex"
+          >
+            <!-- Left side: Content -->
+            <div class="w-1/2 p-8 relative z-10">
+              <MapPin class="w-12 h-12 mb-6 text-primary-400" />
+              <h3 class="text-xl font-display font-semibold mb-2 text-white">
+                Location
+              </h3>
+              <p class="text-zinc-500 text-sm mb-4">Based in Manchester, UK</p>
+              <p
+                class="text-primary-400 font-medium group-hover:text-primary-300 transition-colors"
+              >
+                Serving clients globally
+              </p>
+            </div>
+            <!-- Right side: Map -->
+            <div class="w-1/2 relative">
+              <iframe
+                src={`"https://api.maptiler.com/maps/basic-v2/?key=${mapTilerApiKey}#9.7/53.46692/-2.23214"`}
+                style="border: none; width: 100%; height: 100%; filter: grayscale(1) contrast(1.2);"
+                loading="lazy"
+                class="opacity-40 group-hover:opacity-60 transition-opacity"
+                title="Map of Manchester"></iframe>
+              <!-- Map Pin Overlay -->
+              <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none"
+              >
+                <div class="w-8 h-8 text-primary-400 animate-bounce">
+                  <MapPin class="w-full h-full" />
+                </div>
+              </div>
+              <!-- Gradient overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-l from-transparent to-zinc-900/90"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- CTA Section -->
+<section
+  class="px-4 sm:px-6 lg:px-8 py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50"
+>
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
+      Ready to Start Your Digital Journey?
+    </h2>
+    <p class="text-zinc-400 mb-8 max-w-2xl mx-auto">
+      Send us an email and we'll get back to you within 24 hours.
+    </p>
+    <Button
+      href="mailto:hello@talesoft.digital?subject=Digital%20Project%20Inquiry"
+      variant="primary"
+    >
+      Email Us Now
+    </Button>
+  </div>
+</section>

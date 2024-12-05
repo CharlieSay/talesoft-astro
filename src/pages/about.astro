@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import { Heart, Sparkles, Target, Users } from "lucide-astro";
+import CharlieImage from "../assets/charlie.jpg";
+import HeroTwo from "../assets/hero2.jpg";
+import Button from "../components/Button.astro";
+import Layout from "../layouts/Layout.astro";
+
+const values = [
+  {
+    icon: Heart,
+    title: "Faith-Driven",
+    description:
+      "Our Christian values guide every decision and interaction, ensuring our work aligns with Kingdom principles.",
+  },
+  {
+    icon: Target,
+    title: "Purpose-Focused",
+    description:
+      "We create solutions that serve your mission and amplify your impact in spreading the Gospel.",
+  },
+  {
+    icon: Sparkles,
+    title: "Excellence",
+    description:
+      "We pursue excellence in every detail, believing our work should reflect the creativity of our Creator.",
+  },
+  {
+    icon: Users,
+    title: "Partnership",
+    description:
+      "We view ourselves as an extension of your ministry team, committed to your long-term success.",
+  },
+];
+
+const team = {
+  name: "Charlie",
+  role: "Creative @ Talesoft Digital",
+  image: CharlieImage,
+};
+---
+
+<Layout title="About Us - Talesoft Digital">
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="relative px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400"
+            >
+              Digital Excellence, Kingdom Purpose
+            </h1>
+            <p class="text-xl text-zinc-400 mb-8 leading-relaxed">
+              We're an agency passionate about helping ministries and
+              organizations leverage technology to expand their reach and deepen
+              their impact.
+            </p>
+            <Button href="/contact" variant="primary">Join Our Mission</Button>
+          </div>
+          <div
+            class="relative h-96 rounded-3xl shadow-2xl shadow-primary-500/20 transform hover:scale-[1.02] transition-all duration-300 overflow-hidden group"
+          >
+            <Image
+              src={HeroTwo}
+              alt="About Talesoft Digital"
+              class="absolute opacity-65 inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div
+              class="aspect-square rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-500/5 border border-primary-500/10 shadow-2xl shadow-primary-500/10"
+            >
+            </div>
+            <div
+              class="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-10"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto">
+        <h2
+          class="text-3xl font-display font-bold text-center mb-16 text-white"
+        >
+          Our Core Values
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            values.map((value) => (
+              <div class="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-zinc-800 hover:border-primary-500/20 transition-all duration-300">
+                <value.icon class="w-12 h-12 mb-6 text-primary-400" />
+                <h3 class="text-xl font-display font-semibold mb-4 text-white">
+                  {value.title}
+                </h3>
+                <p class="text-zinc-400">{value.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section
+      class="px-4 sm:px-6 lg:px-8 py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50"
+    >
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-display font-bold mb-16 text-white">
+          Meet the Creator
+        </h2>
+        <div class="max-w-md mx-auto">
+          <div class="group">
+            <div
+              class="aspect-square mb-6 rounded-2xl bg-zinc-800/50 border border-zinc-700/50 overflow-hidden"
+            >
+              <Image
+                src={team.image}
+                alt={team.name}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <h3 class="text-xl font-display font-semibold text-white mb-2">
+              {team.name}
+            </h3>
+            <p class="text-zinc-400">{team.role}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

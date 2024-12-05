@@ -1,0 +1,177 @@
+---
+import { Image } from "astro:assets";
+import { Sparkles } from "lucide-astro";
+import heroImage from "../assets/hero1.jpg";
+import Button from "../components/Button.astro";
+import CompanyLogos from "../components/CompanyLogos.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Talesoft Digital - Digital Agency for Christian Organizations">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+    <div class="absolute inset-0"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-primary-500/10 to-transparent"
+    >
+    </div>
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800/50 backdrop-blur-sm border border-zinc-800 mb-8"
+        >
+          <Sparkles class="w-4 h-4 text-primary-400" />
+          <span class="text-sm text-zinc-400">Crafting Digital Excellence</span>
+        </div>
+        <h1
+          class="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400"
+        >
+          Crafting Digital
+          <div class="h-[0.95em] overflow-hidden">
+            <div class="animate-text-slide">
+              <span class="block text-primary-600">Experiences</span>
+              <span class="block text-primary-600">Solutions</span>
+              <span class="block text-primary-600">Journeys</span>
+              <span class="block text-primary-600">Stories</span>
+              <span class="block text-primary-600">Impact</span>
+              <span class="block text-primary-600">Futures</span>
+            </div>
+          </div>
+          <span>for Christ-Centered Vision</span>
+        </h1>
+        <p
+          class="text-xl text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          We create impactful digital solutions that help Christian
+          organizations thrive in the modern digital landscape.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-6 items-center"
+        >
+          <Button href="/contact" variant="primary">Book a Consultation</Button>
+          <Button href="/portfolio" variant="outline">View Our Work</Button>
+        </div>
+      </div>
+
+      <CompanyLogos />
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-24 relative px-4 sm:px-6 lg:px-8">
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-zinc-900/50 to-transparent"
+    >
+    </div>
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-display font-bold text-center mb-16">
+        Our Services
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          [
+            {
+              title: "Website Development",
+              description:
+                "Custom websites that reflect your ministry's values and reach your audience effectively.",
+            },
+            {
+              title: "Social Media Management",
+              description:
+                "Strategic social media presence that builds community and spreads your message.",
+            },
+            {
+              title: "Content Creation",
+              description:
+                "Engaging content that connects with your audience and shares your story authentically.",
+            },
+            {
+              title: "Digital Consultation",
+              description:
+                "Expert guidance to navigate the digital landscape and achieve your ministry goals.",
+            },
+            {
+              title: "Custom Software",
+              description:
+                "Tailored software solutions that streamline your organization's operations.",
+            },
+            {
+              title: "Digital Strategy",
+              description:
+                "Comprehensive digital strategies that align with your mission and vision.",
+            },
+          ].map((service) => (
+            <div class="group bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl hover:bg-zinc-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 border border-zinc-800">
+              <h3 class="text-xl font-display font-semibold mb-3">
+                {service.title}
+              </h3>
+              <p class="text-stone-600 mb-4">{service.description}</p>
+              <a
+                href="/services"
+                class="text-primary-600 hover:text-primary-700 font-medium"
+              >
+                Learn more →
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2
+            class="text-4xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400"
+          >
+            Faith-Driven Digital Excellence
+          </h2>
+          <p class="text-zinc-400 mb-8 text-lg leading-relaxed">
+            At Talesoft Digital, we combine technical expertise with a deep
+            understanding of Christian organizations' unique needs. Our
+            faith-informed approach ensures that every digital solution we
+            create aligns with your values and mission.
+          </p>
+          <Button href="/about" variant="outline">Learn Our Story →</Button>
+        </div>
+        <div
+          class="relative h-96 rounded-3xl shadow-2xl shadow-primary-500/20 transform hover:scale-[1.02] transition-all duration-300 overflow-hidden group"
+        >
+          <Image
+            src={heroImage}
+            alt="About Talesoft Digital"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-primary-500/5"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-10"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section
+    class="py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+  >
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl font-display font-bold text-white mb-6">
+        Ready to Transform Your Digital Presence?
+      </h2>
+      <p class="text-primary-100 mb-8 max-w-2xl mx-auto">
+        Let's discuss how we can help your organization make a bigger impact in
+        the digital space.
+      </p>
+      <Button href="/contact" variant="secondary"
+        >Schedule a Free Consultation</Button
+      >
+    </div>
+  </section>
+</Layout>

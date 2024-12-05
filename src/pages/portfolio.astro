@@ -1,0 +1,94 @@
+---
+import sctk from "../assets/portfolio/sctk.png";
+import Button from "../components/Button.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Layout from "../layouts/Layout.astro";
+const projects = [
+  {
+    title: "Simple Church Toolkit",
+    category: "Web Development",
+    description:
+      "A micro SaaS designed for UK churches, providing subtle yet essential tools like Simple Timers, Display Messages, and live service tracking to enhance service flow.",
+    image: sctk,
+    stats: [
+      { label: "Churches Using", value: "5+" },
+      { label: "Uptime", value: "99.9%" },
+      { label: "Feature Growth", value: "5 Core Tools" },
+    ],
+  },
+  {
+    title: "Visuals Store",
+    category: "Live Production",
+    description:
+      "A digital asset platform tailored for churches, offering visuals and lyric videos optimized for LED walls and presentations.",
+    image: "../assets/portfolio/visuals-store.jpg",
+    stats: [
+      { label: "Visuals Sold", value: "1,000+" },
+      { label: "Client Churches", value: "200+" },
+      { label: "Repeat Buyers", value: "75%" },
+    ],
+  },
+  {
+    title: "FeedbackFlow",
+    category: "In beta",
+    description:
+      "A feedback collection tool tailored for small businesses and organizations to gather actionable insights from customers.",
+    image: "../assets/portfolio/feedbackflow.jpg",
+    stats: [
+      { label: "Customised forms", value: "✅" },
+      { label: "Analytics of forms", value: "✅" },
+      { label: "Ease of Use Rating", value: "4.9/5" },
+    ],
+  },
+];
+---
+
+<Layout title="Portfolio - Talesoft Digital">
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="relative px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400"
+        >
+          Our Kingdom Impact
+        </h1>
+        <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-12">
+          Explore how we've helped Christian organizations amplify their reach
+          and deepen their impact through digital excellence.
+        </p>
+        <Button href="/contact" variant="primary">Start Your Project</Button>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="space-y-24">
+          {
+            projects.map((project, index) => (
+              <ProjectCard {...project} index={index} />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+      class="px-4 sm:px-6 lg:px-8 py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50"
+    >
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
+          Ready to Create Something Amazing?
+        </h2>
+        <p class="text-zinc-400 mb-8 max-w-2xl mx-auto">
+          Let's work together to bring your vision to life and expand your
+          digital impact.
+        </p>
+        <Button href="/contact" variant="primary">Start the Conversation</Button
+        >
+      </div>
+    </section>
+  </main>
+</Layout>

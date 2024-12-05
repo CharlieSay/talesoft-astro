@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Layout title="Blog - Talesoft Digital">
+  <main class="pt-32">
+    <!-- Hero Section -->
+    <section class="relative px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400">
+          Digital Ministry Insights
+        </h1>
+        <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
+          Exploring the intersection of faith, technology, and digital transformation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="px-4 sm:px-6 lg:px-8 mb-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              publishDate={post.data.publishDate}
+              slug={post.slug}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

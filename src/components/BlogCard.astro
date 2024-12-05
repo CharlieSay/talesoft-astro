@@ -1,0 +1,29 @@
+---
+import { format } from 'date-fns';
+
+interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  slug: string;
+}
+
+const { title, description, publishDate, slug } = Astro.props;
+---
+
+<article class="group bg-zinc-900/50 backdrop-blur-sm rounded-2xl border border-zinc-800 hover:border-primary-500/20 transition-all duration-300 overflow-hidden">
+  <div class="p-6">
+    <time datetime={publishDate.toISOString()} class="text-sm text-zinc-500">
+      {format(publishDate, 'MMMM d, yyyy')}
+    </time>
+    <h3 class="text-xl font-display font-bold mt-2 mb-3 text-white group-hover:text-primary-400 transition-colors">
+      <a href={`/blog/${slug}`}>{title}</a>
+    </h3>
+    <p class="text-zinc-400 line-clamp-2">{description}</p>
+  </div>
+  <div class="px-6 py-4 border-t border-zinc-800/50">
+    <a href={`/blog/${slug}`} class="text-primary-400 hover:text-primary-300 transition-colors text-sm font-medium">
+      Read more →
+    </a>
+  </div>
+</article>

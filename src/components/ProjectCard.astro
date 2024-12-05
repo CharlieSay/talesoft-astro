@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  category: string;
+  description: string;
+  stats: Array<{
+    label: string;
+    value: string;
+  }>;
+  index: number;
+}
+
+const { title, category, description, stats, index } = Astro.props;
+---
+
+<div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+  <div class="relative group">
+    <div class="aspect-video rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-500/5 border border-primary-500/10 shadow-2xl shadow-primary-500/10 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-10"></div>
+    </div>
+  </div>
+  <div>
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 backdrop-blur-sm border border-primary-500/20 mb-6">
+      <span class="text-sm text-primary-400">{category}</span>
+    </div>
+    <h2 class="text-3xl font-display font-bold mb-4 text-white">{title}</h2>
+    <p class="text-zinc-400 mb-8">{description}</p>
+    <div class="grid grid-cols-3 gap-4">
+      {stats.map(stat => (
+        <div class="bg-zinc-900/50 backdrop-blur-sm p-4 rounded-xl border border-zinc-800 hover:border-primary-500/20 transition-all duration-300">
+          <div class="text-2xl font-display font-bold text-primary-400 mb-1">{stat.value}</div>
+          <div class="text-sm text-zinc-500">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
