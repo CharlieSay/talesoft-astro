@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets";
-import { Sparkles } from "lucide-astro";
-import heroImage from "../assets/hero1.jpg";
-import Button from "../components/Button.astro";
-import CompanyLogos from "../components/CompanyLogos.astro";
-import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import { Sparkles } from 'lucide-astro';
+import heroImage from '../assets/hero1.jpg';
+import Button from '../components/Button.astro';
+import CompanyLogos from '../components/CompanyLogos.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Talesoft Digital - Digital Agency for Christian Organizations">
@@ -48,8 +48,17 @@ import Layout from "../layouts/Layout.astro";
         <div
           class="flex flex-col sm:flex-row justify-center gap-6 items-center"
         >
-          <Button href="/contact" variant="primary">Book a Consultation</Button>
-          <Button href="/portfolio" variant="outline">View Our Work</Button>
+          <Button
+            variant="primary"
+            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Bq0uLcYpB7EOuk6nORPDJPsgEYzPXuQxKTAAxLo_oc4ihBUC_N8NRqENjRa2O_fXLmTZEwK5K"
+            target="_blank"
+            class="z-10"
+          >
+            Book a Consultation
+          </Button>
+          <Button href="/portfolio" variant="outline" class="z-10">
+            View Our Work
+          </Button>
         </div>
       </div>
 
@@ -71,34 +80,34 @@ import Layout from "../layouts/Layout.astro";
         {
           [
             {
-              title: "Website Development",
+              title: 'Website Development',
               description:
                 "Custom websites that reflect your ministry's values and reach your audience effectively.",
             },
             {
-              title: "Social Media Management",
+              title: 'Social Media Management',
               description:
-                "Strategic social media presence that builds community and spreads your message.",
+                'Strategic social media presence that builds community and spreads your message.',
             },
             {
-              title: "Content Creation",
+              title: 'Content Creation',
               description:
-                "Engaging content that connects with your audience and shares your story authentically.",
+                'Engaging content that connects with your audience and shares your story authentically.',
             },
             {
-              title: "Digital Consultation",
+              title: 'Digital Consultation',
               description:
-                "Expert guidance to navigate the digital landscape and achieve your ministry goals.",
+                'Expert guidance to navigate the digital landscape and achieve your ministry goals.',
             },
             {
-              title: "Custom Software",
+              title: 'Custom Software',
               description:
                 "Tailored software solutions that streamline your organization's operations.",
             },
             {
-              title: "Digital Strategy",
+              title: 'Digital Strategy',
               description:
-                "Comprehensive digital strategies that align with your mission and vision.",
+                'Comprehensive digital strategies that align with your mission and vision.',
             },
           ].map((service) => (
             <div class="group bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl hover:bg-zinc-800/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/10 border border-zinc-800">

@@ -1,15 +1,15 @@
 ---
-import { Mail, MapPin } from "lucide-astro";
-import Button from "../components/Button.astro";
-import Layout from "../layouts/Layout.astro";
+import { Mail, MapPin } from 'lucide-astro';
+import Button from '../components/Button.astro';
+import Layout from '../layouts/Layout.astro';
 
 const contactMethods = [
   {
     icon: Mail,
-    title: "Email",
-    description: "Drop us a message anytime",
-    action: "hello@talesoft.digital",
-    href: "mailto:hello@talesoft.digital",
+    title: 'Email',
+    description: 'Drop us a message anytime',
+    action: 'hello@talesoft.digital',
+    href: 'mailto:hello@talesoft.digital',
   },
 ];
 
@@ -99,23 +99,3 @@ const mapTilerApiKey = import.meta.env.PUBLIC_MAPTILER_API;
     </section>
   </main>
 </Layout>
-
-<!-- CTA Section -->
-<section
-  class="px-4 sm:px-6 lg:px-8 py-24 bg-gradient-to-br from-zinc-900 to-zinc-950 border-t border-zinc-800/50"
->
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">
-      Ready to Start Your Digital Journey?
-    </h2>
-    <p class="text-zinc-400 mb-8 max-w-2xl mx-auto">
-      Send us an email and we'll get back to you within 24 hours.
-    </p>
-    <Button
-      href="mailto:hello@talesoft.digital?subject=Digital%20Project%20Inquiry"
-      variant="primary"
-    >
-      Email Us Now
-    </Button>
-  </div>
-</section>

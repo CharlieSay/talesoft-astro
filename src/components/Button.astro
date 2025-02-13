@@ -1,37 +1,64 @@
 ---
 interface Props {
   href?: string;
-  type?: "button" | "submit";
-  variant?: "primary" | "secondary" | "outline" | "accent";
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'secondary' | 'outline' | 'accent';
   class?: string;
+  target?: string;
 }
 
 const {
   href,
-  type = "button",
-  variant = "primary",
+  type = 'button',
+  variant = 'primary',
   class: className,
+  target,
   ...props
 } = Astro.props;
 
 const baseStyles =
-  "inline-flex items-center justify-center px-6 py-3 rounded-full font-display font-medium transition-all duration-300 hover:scale-105";
+  'inline-flex items-center justify-center px-6 py-3 rounded-full font-display font-medium transition-all duration-300 hover:scale-105 cursor-pointer';
 const variants = {
   primary:
-    "bg-primary-600 text-white hover:shadow-lg hover:shadow-primary-500/50 hover:bg-primary-500 shadow-primary-500/20 shadow-lg",
+    'bg-primary-600 text-white hover:shadow-lg hover:shadow-primary-500/50 hover:bg-primary-500 shadow-primary-500/20 shadow-lg',
   secondary:
-    "bg-primary-600 text-white hover:shadow-lg hover:shadow-primary-500/50 hover:bg-primary-500 shadow-primary-500/20 shadow-lg",
+    'bg-primary-600 text-white hover:shadow-lg hover:shadow-primary-500/50 hover:bg-primary-500 shadow-primary-500/20 shadow-lg',
   outline:
-    "border-2 border-primary-600 text-primary-400 hover:bg-primary-600/20 hover:border-primary-400 hover:text-white",
+    'border-2 border-primary-600 text-primary-400 hover:bg-primary-600/20 hover:border-primary-400 hover:text-white',
   accent:
-    "bg-zinc-900/80 text-primary-400 hover:bg-zinc-800 hover:text-primary-300 border border-zinc-700",
+    'bg-zinc-900/80 text-primary-400 hover:bg-zinc-800 hover:text-primary-300 border border-zinc-700',
 };
 
-const styles = `${baseStyles} ${variants[variant]} ${className}`;
-
-const Component = href ? "a" : "button";
+const styles = `${baseStyles} ${variants[variant]} ${className ?? ''}`;
 ---
 
-<Component {...href ? { href } : { type }} class={styles} {...props}>
-  <slot />
-</Component>
+{
+  href ? (
+    <a href={href} class={styles} target={target} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={styles} {...props}>
+      <slot />
+    </button>
+  )
+}
+
+<script>
+  // Add client-side click handler
+  document.querySelectorAll('a, button').forEach((element) => {
+    if (element.classList.contains(baseStyles)) {
+      element.addEventListener('click', (e) => {
+        const href = element.getAttribute('href');
+        if (href) {
+          const target = element.getAttribute('target');
+          if (target === '_blank') {
+            window.open(href, '_blank');
+          } else {
+            window.location.href = href;
+          }
+        }
+      });
+    }
+  });
+</script>
