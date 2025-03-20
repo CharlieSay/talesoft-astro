@@ -1,6 +1,6 @@
 ---
-import Button from "./Button.astro";
-import { Menu } from "lucide-astro";
+import Button from './Button.astro';
+import { Menu } from 'lucide-astro';
 ---
 
 <header
@@ -38,7 +38,10 @@ import { Menu } from "lucide-astro";
         <Button href="https://store.talesoft.digital" variant="accent"
           >Worship Store</Button
         >
-        <Button href="/contact" variant="primary">Get in Touch</Button>
+        <Button
+          href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Bq0uLcYpB7EOuk6nORPDJPsgEYzPXuQxKTAAxLo_oc4ihBUC_N8NRqENjRa2O_fXLmTZEwK5K"
+          variant="primary">Get in Touch</Button
+        >
       </nav>
 
       <div class="lg:hidden flex items-center">
@@ -82,20 +85,22 @@ import { Menu } from "lucide-astro";
           variant="accent"
           class="w-full">Worship Store</Button
         >
-        <Button href="/contact" variant="primary" class="w-full"
-          >Get in Touch</Button
+        <Button
+          href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3Bq0uLcYpB7EOuk6nORPDJPsgEYzPXuQxKTAAxLo_oc4ihBUC_N8NRqENjRa2O_fXLmTZEwK5K"
+          variant="primary"
+          class="w-full">Get in Touch</Button
         >
       </nav>
     </div>
   </div>
 
   <script>
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
       });
     }
   </script>
